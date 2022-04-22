@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'ansible'}
+    
+    stages {
+        stage('Deploy Web application') {
+            steps {
+                echo "========== DEPLOY WEB APP START =========="
+                ansiblePlaybook(
+                    vaultCredentialsId: 'AnsibleVault', 
+                    inventory: 'inventory.yaml', 
+                    playbook: 'install_web.yaml'
+                )
+            }
+        }
+    }
+}
