@@ -1,0 +1,5 @@
+---
+- hosts: student-exam2-web
+  become: yes
+  roles:
+    - start_web

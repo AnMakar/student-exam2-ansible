@@ -1,0 +1,18 @@
+---
+- name: install docker
+  include_role: install_docker
+
+- name: log into docker hub
+  docker_login:
+    email: "{{ dockerhub_email }}"
+    username: "{{ dockerhub_login }}"
+    password: "{{ dockerhub_password }}"
+
+- name: start docker container from docker hub
+  docker_container:
+    name: flask
+    state: started
+    image: anmean/student-exam2:flask
+    ports:
+      - "5000:5000"
+    detach: true
