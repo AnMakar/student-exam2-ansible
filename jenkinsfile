@@ -8,7 +8,7 @@ pipeline {
                 ansiblePlaybook(
                     vaultCredentialsId: 'AnsibleVault', 
                     inventory: 'inventory.yaml', 
-                    playbook: 'install_web.yaml'
+                    playbook: 'start_web.yaml'
                 )
             }
         }
