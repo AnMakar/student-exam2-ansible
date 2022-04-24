@@ -5,4 +5,4 @@ all:
         student-exam2-host:
           ansible_host: 172.17.0.1
           ansible_ssh_private_key_file: /home/jenkins/.ssh/ansible_keys
-          ansible_user: anmean
+          ansible_user: anme
