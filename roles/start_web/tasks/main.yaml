@@ -3,12 +3,13 @@
   include_role: 
     name: install_docker
 
-- name: install python3
+- name: install python and etc
   become: yes
   yum:
     name: 
     - python3 
     - python
+    - python2-pip
     state: latest
 
 - name: install Docker SDK for Python
