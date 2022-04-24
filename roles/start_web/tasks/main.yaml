@@ -9,6 +9,10 @@
     username: "{{ dockerhub_login }}"
     password: "{{ dockerhub_password }}"
 
+- name: set docker network for web app
+    community.docker.docker_network:
+    name: network_web
+
 - name: start docker container from docker hub
   docker_container:
     name: flask
@@ -16,4 +20,6 @@
     image: anmean/student-exam2:flask
     ports:
       - "5000:5000"
+    networks:
+      - name: network_web
     detach: true
