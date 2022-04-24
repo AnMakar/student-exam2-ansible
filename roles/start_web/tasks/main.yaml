@@ -4,6 +4,7 @@
     name: install_docker
 
 - name: install python3
+  become: yes
   yum:
     name: python3
     state: latest
