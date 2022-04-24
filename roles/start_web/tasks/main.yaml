@@ -8,6 +8,11 @@
     email: "{{ dockerhub_email }}"
     username: "{{ dockerhub_login }}"
     password: "{{ dockerhub_password }}"
+    
+- name: install ansible galaxy module docker_network
+  community.general.ansible_galaxy_install:
+    type: collection
+    name: community.docker
 
 - name: set docker network for web app
   community.docker.docker_network:
