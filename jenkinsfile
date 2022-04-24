@@ -8,6 +8,8 @@ pipeline {
                 sh "ip -4 a"
                 sh "ansible --version"
                 sh "ansible all --list-hosts -i inventory.yaml"
+                sh " ansible all -m ping -i /home/jenkins/inventory.yaml -u anme --private-key /home/jenkins/.ssh/ansibl
+e_keys"
                 ansiblePlaybook(
                     vaultCredentialsId: 'AnsibleVault', 
                     inventory: 'inventory.yaml', 
