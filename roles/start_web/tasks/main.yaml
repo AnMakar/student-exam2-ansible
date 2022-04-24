@@ -5,7 +5,6 @@
 
 - name: install python3
   become: yes
-  ansible_become_password: "{{ ansible_become_pass }}"
   yum:
     name: python3
     state: latest
