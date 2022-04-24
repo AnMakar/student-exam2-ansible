@@ -1,6 +1,7 @@
 ---
 - name: install docker
-  include_role: install_docker
+  include_role: 
+    name: install_docker
 
 - name: log into docker hub
   docker_login:
