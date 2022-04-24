@@ -4,9 +4,9 @@ all:
       hosts:
         student-exam2-host:
           ansible_host: 172.17.0.1
-          ansible_ssh_private_key_file: /home/jenkins/.ssh/id_rsa
+          ansible_ssh_private_key_file: /home/jenkins/.ssh/ansible_keys
           ansible_user: jenkins
         student-exam2-localhost:
           ansible_host: 127.0.0.1
-          ansible_ssh_private_key_file: /home/jenkins/.ssh/id_rsa
+          ansible_ssh_private_key_file: /home/jenkins/.ssh/ansible_keys
           ansible_user: jenkins
