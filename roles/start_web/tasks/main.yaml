@@ -6,7 +6,9 @@
 - name: install python3
   become: yes
   yum:
-    name: python3
+    name: 
+    - python3 
+    - python
     state: latest
 
 - name: install Docker SDK for Python
