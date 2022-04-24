@@ -19,7 +19,6 @@
     extra_args: --upgrade
   tags:
     - packages
-  extra_args: --upgrade
 
 - name: install Docker SDK for Python
   pip:
