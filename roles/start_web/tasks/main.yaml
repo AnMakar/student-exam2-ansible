@@ -13,7 +13,10 @@
     state: latest
     
 - name: Upgrade pip
-  pip: name=pip state=latest
+  pip: 
+    name: pip 
+    state: latest
+    extra_args: --upgrade
   tags:
     - packages
   extra_args: --upgrade
