@@ -8,7 +8,7 @@ pipeline {
                 sh "ip -4 a"
                 sh "ansible --version"
                 sh "ansible all --list-hosts -i inventory.yaml"
-                sh "ansible all -m ping -u root"
+                sh "ansible all -m ping -u root -i inventory.yaml"
                 ansiblePlaybook(
                     vaultCredentialsId: 'AnsibleVault', 
                     inventory: 'inventory.yaml', 
