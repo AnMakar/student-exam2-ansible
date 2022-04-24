@@ -11,7 +11,7 @@
 
 - name: set docker network for web app
     community.docker.docker_network:
-    name: network_web
+      name: network_web
 
 - name: start docker container from docker hub
   docker_container:
