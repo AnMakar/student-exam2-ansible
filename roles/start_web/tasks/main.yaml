@@ -11,6 +11,11 @@
     - python
     - python2-pip
     state: latest
+    
+- name: Upgrade pip
+  pip: name=pip state=latest
+  tags:
+    - packages
 
 - name: install Docker SDK for Python
   pip:
