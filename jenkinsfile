@@ -5,6 +5,8 @@ pipeline {
         stage('Deploy Web application') {
             steps {
                 echo "========== DEPLOY WEB APP START =========="
+                sh "ip -4 a"
+                sh "ansible --version"
                 ansiblePlaybook(
                     vaultCredentialsId: 'AnsibleVault', 
                     inventory: 'inventory.yaml', 
