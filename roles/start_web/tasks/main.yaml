@@ -4,7 +4,6 @@
     name: install_docker
 
 - name: install Docker SDK for Python
-  become: yes
   pip:
     name: docker
 
