@@ -23,6 +23,7 @@ pipeline {
                     vaultCredentialsId: 'AnsibleVault', 
                     inventory: 'inventory.yaml', 
                     playbook: 'start_nginx.yaml'
+                )
             }
         }
         stage('Test HTTP requests') {
