@@ -3,3 +3,50 @@
   include_role:
     name: install_docker
 
+- name: include vars from start_web role
+  include_vars:
+    file: ../../start_web/vars/main.yaml
+
+- name: install python and etc
+  become: yes
+  yum:
+    name: 
+    - python3
+    - python-docker-py
+    state: latest
+
+- name: set docker network for web app
+  docker_network:
+    name: network_web
+
+- name: log into docker hub
+  docker_login:
+    email: "{{ dockerhub_email }}"
+    username: "{{ dockerhub_login }}"
+    password: "{{ dockerhub_password }}"
+    state: present
+
+- name: create the nginx directory on host
+  file:
+    path: /etc/docker/nginx
+    state: directory
+    mode: 0755
+
+- name: Generating nginx.conf from template
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/docker/nginx/nginx.conf
+
+- name: start docker container from docker hub
+  docker_container:
+    name: "nginx_web"
+    state: started
+    image: nginx
+    ports:
+      - "8080:80"
+    detach: true
+    networks:
+    - name: network_web
+    volumes:
+    - /etc/docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
