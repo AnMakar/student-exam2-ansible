@@ -26,14 +26,5 @@ pipeline {
                 )
             }
         }
-        stage('Test HTTP requests') {
-            steps{ srcipt {
-                try {
-                    def response = httpRequest 'http://localhost:8080'
-                    println("Status: "+response.status)
-                }
-                }
-            }
-        }
     }
 }
