@@ -27,6 +27,7 @@
     state: present
 
 - name: create the nginx directory on host
+  become: yes
   file:
     path: /etc/docker/nginx
     state: directory
