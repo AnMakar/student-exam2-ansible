@@ -28,8 +28,10 @@ pipeline {
         }
         stage('Test HTTP request') {
             steps { script {
-                def response = httpRequest 'https://dog.ceo/api/breeds/list/all'
+                def response = httpRequest 'http://172.17.0.1:8088'
                 echo "Status: ${response.status}"
+                def response2 = httpRequest 'http://172.17.0.1:5002'
+                echo "Status: ${response2.status}"
             }
             }
         }
