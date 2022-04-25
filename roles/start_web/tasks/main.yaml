@@ -7,28 +7,16 @@
   become: yes
   yum:
     name: 
-    - python3 
-    - python
-    - python2-pip
+    - python3
+    - docker-py
     state: latest
-    
-- name: Upgrade pip
-  pip: 
-    name: pip 
-    state: latest
-    extra_args: --upgrade
-  tags:
-    - packages
-
-- name: install Docker SDK for Python
-  pip:
-    name: docker
 
 - name: log into docker hub
   docker_login:
     email: "{{ dockerhub_email }}"
     username: "{{ dockerhub_login }}"
     password: "{{ dockerhub_password }}"
+    state: present
     
 - name: start docker container from docker hub
   docker_container:
