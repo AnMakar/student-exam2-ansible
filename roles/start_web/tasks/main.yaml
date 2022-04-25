@@ -24,11 +24,12 @@
     
 - name: start docker container from docker hub
   docker_container:
-    name: flask
+    name: flask_{{ item }}
     state: started
     image: anmean/student-exam2:flask
     ports:
-      - "5000:5000"
+      - "500{{ item }}:5000"
     detach: true
     networks:
     - name: network_web
+  loop: "{{ docker_hosts }}"
