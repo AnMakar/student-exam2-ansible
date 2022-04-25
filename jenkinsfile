@@ -28,8 +28,10 @@ pipeline {
         }
         stage('Test HTTP requests') {
             steps{ srcipt {
-                def response = httpRequest 'http://localhost:8080'
-                println("Status: "+response.status)
+                try {
+                    def response = httpRequest 'http://localhost:8080'
+                    println("Status: "+response.status)
+                }
                 }
             }
         }
