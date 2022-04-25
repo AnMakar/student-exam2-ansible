@@ -11,6 +11,10 @@
     - python-docker-py
     state: latest
 
+- name: set docker network for web app
+  docker_network:
+    name: network_web
+
 - name: log into docker hub
   docker_login:
     email: "{{ dockerhub_email }}"
@@ -26,3 +30,5 @@
     ports:
       - "5000:5000"
     detach: true
+    networks:
+    - name: network_web
