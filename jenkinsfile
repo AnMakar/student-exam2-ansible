@@ -17,5 +17,21 @@ pipeline {
                 )
             }
         }
+        stage('Deploy Nginx Balancier') {
+            steps{
+                ansiblePlaybook(
+                    vaultCredentialsId: 'AnsibleVault', 
+                    inventory: 'inventory.yaml', 
+                    playbook: 'start_nginx.yaml'
+            }
+        }
+        stage('Test HTTP requests') {
+            steps{ srcipt {
+                def response = httpRequest 'http://localhost:8080'
+                println("Status: "+response.status)
+                }
+            }
+            }
+        }
     }
 }
