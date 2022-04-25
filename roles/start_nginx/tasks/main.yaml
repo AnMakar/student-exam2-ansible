@@ -44,7 +44,7 @@
     state: started
     image: nginx
     ports:
-      - "8080:80"
+      - "8088:80"
     detach: true
     networks:
     - name: network_web
