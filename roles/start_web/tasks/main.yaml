@@ -8,7 +8,7 @@
   yum:
     name: 
     - python3
-    - docker-py
+    - python-docker-py
     state: latest
 
 - name: log into docker hub
