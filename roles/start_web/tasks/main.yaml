@@ -24,7 +24,7 @@
     
 - name: start docker container from docker hub
   docker_container:
-    name: flask_{{ item }}
+    name: "flask_{{ item }}"
     state: started
     image: anmean/student-exam2:flask
     ports:
