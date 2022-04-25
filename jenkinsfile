@@ -32,7 +32,6 @@ pipeline {
                 println("Status: "+response.status)
                 }
             }
-            }
         }
     }
 }
