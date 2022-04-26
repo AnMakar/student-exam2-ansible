@@ -28,7 +28,13 @@ pipeline {
         }
         stage('Test HTTP request') {
             steps { script {
-                def response = httpRequest 'http://172.17.0.1:5002'
+                def response1 = httpRequest 'http://172.17.0.1:5000'
+                echo "Status: ${response1.status}"
+                def response2 = httpRequest 'http://172.17.0.1:5001'
+                echo "Status: ${response2.status}"
+                def response3 = httpRequest 'http://172.17.0.1:5002'
+                echo "Status: ${response3.status}"
+                def response = httpRequest 'http://172.17.0.1:8088'
                 echo "Status: ${response.status}"
             }
             }
