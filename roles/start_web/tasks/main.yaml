@@ -12,6 +12,7 @@
     state: latest
 
 - name: set docker network for web app
+  become: yes
   docker_network:
     name: network_web
 
