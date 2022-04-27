@@ -19,9 +19,9 @@ http {
     access_log /var/log/nginx/access.log main;
     
     upstream nginx_balancier {
-        server 127.0.0.1:5000;
-        server 127.0.0.1:5001;
-        server 127.0.0.1:5002;
+        server flask_0:5000;
+        server flask_1:5001;
+        server flask_2:5002;
     }
 
     server {
