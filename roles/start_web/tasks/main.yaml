@@ -17,6 +17,7 @@
     name: network_web
 
 - name: log into docker hub
+  become: yes
   docker_login:
     email: "{{ dockerhub_email }}"
     username: "{{ dockerhub_login }}"
@@ -24,6 +25,7 @@
     state: present
     
 - name: start docker container from docker hub
+  become: yes
   docker_container:
     name: "flask_{{ item }}"
     state: started
