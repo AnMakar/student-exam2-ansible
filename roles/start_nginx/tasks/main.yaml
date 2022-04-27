@@ -16,10 +16,12 @@
     state: latest
 
 - name: set docker network for web app
+  become: yes
   docker_network:
     name: network_web
 
 - name: log into docker hub
+  become: yes
   docker_login:
     email: "{{ dockerhub_email }}"
     username: "{{ dockerhub_login }}"
