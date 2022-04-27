@@ -20,8 +20,8 @@ http {
     
     upstream nginx_balancier {
         server flask_0:5000;
-        server flask_1:5001;
-        server flask_2:5002;
+        server flask_1:5000;
+        server flask_2:5000;
     }
 
     server {
